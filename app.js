@@ -22,9 +22,11 @@ app.get("/login/:username/:password",function (req, res) {
    res.send(ret);
 });
 
-var index=require('./routes/index');
+var index=require('./logic/index');
 
 websvr.handleReq("/poi/:q/:region",index.search_poi,app);
+
+websvr.handleReq("/reg/:username/:password",index.regUser,app);
 
 
 app.post("/login",function (req, res) {		  
